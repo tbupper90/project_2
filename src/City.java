@@ -35,6 +35,42 @@ public class City
 		this.elev = elev;
 	}
 	
+	public String getName()
+	{
+		return name;
+	}
 	
-
+	public String getPop()
+	{
+		return pop;
+	}
+	
+	public String getArea()
+	{
+		return area;
+	}
+	
+	public String getCountry()
+	{
+		return country;
+	}
+	
+	public String getLat()
+	{
+		return lat;
+	}
+	
+	public String getLon()
+	{
+		return lon;
+	}
+	
+	public String getElev()
+	{
+		return elev;
+	}
+	
+	
+	
+	
 }

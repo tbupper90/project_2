@@ -10,5 +10,22 @@ public class Driver
 	{
 		
 	}
+	
+	private static void readFile(String file) throws IOException
+	{
+
+	}
+	
+
+	private static void parseLine(String line)
+	{
+
+	}
+	
+	
+	private static void assignVariables()
+	{		
+		
+	}
 
 }
