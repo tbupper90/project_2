@@ -40,6 +40,10 @@ public class Country
 		return continent;
 	}
 	
+	public void addCountry(City city)
+	{
+		
+	}
 	
 	
 	

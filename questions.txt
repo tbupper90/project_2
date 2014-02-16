@@ -1,6 +1,6 @@
 Ask user for input files
 
-What type of geographic dada are you interested in?
+What type of geographic data are you interested in?
 	all continents
 	all countries
 	all cities

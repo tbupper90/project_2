@@ -4,27 +4,27 @@ import java.util.ArrayList;
 public class Prompt 
 {
 	
-	public void getFiles()
+	public static void getFiles()
 	{
 		
 	}
 	
-	public ArrayList getDataType()
+	public static ArrayList getDataType()
 	{
 		return null;
 	}
 	
-	public ArrayList getSortMethond()
+	public static ArrayList getSortMethond()
 	{
 		return null;
 	}
 	
-	public void getOutputPreference()
+	public static void getOutputPreference()
 	{
 		
 	}
 	
-	public boolean getContinue()
+	public static boolean getContinue()
 	{
 		return null;
 	}

@@ -30,5 +30,10 @@ public class Continent
 	{
 		return area;
 	}
+	
+	public void addCountry(Country country)
+	{
+		
+	}
 
 }
