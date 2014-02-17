@@ -14,7 +14,7 @@ public class Prompt
 		return null;
 	}
 	
-	public static ArrayList getSortMethond()
+	public static ArrayList getSortMethod()
 	{
 		return null;
 	}
