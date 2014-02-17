@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class sort 
 {
-	public static <E> void sortByArea(ArrayList<?> list)
+	public static void sortByArea(ArrayList<?> list)
 	{
 		
 	}
