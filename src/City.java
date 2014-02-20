@@ -1,9 +1,16 @@
 import java.util.*;
-
+/*
+ * This class wil create a City Object
+ * 
+ * 
+ */
 
 public class City 
 {
-	
+	/*
+	 * This will add the speicife variables to the
+	 * City Object
+	 */
 	private String name;
 	private String pop; 
 	private String area;
@@ -12,7 +19,10 @@ public class City
 	private String lon;
 	private String elev;
 	
-	
+	/*
+	 * This method will create the city object, without latitude
+	 * longitude and elevation
+	 */
 	public City(String name, String pop, String area, String country)
 	{
 		this.name = name;
@@ -23,7 +33,9 @@ public class City
 		this.lon = null;
 		this.elev = null;
 	}
-	
+	/*
+	 * This method will create a city object with all variables filled
+	 */
 	public City(String name, String pop, String area, String country, String lat, String lon, String elev)
 	{
 		this.name = name;
@@ -34,7 +46,9 @@ public class City
 		this.lon = lon;
 		this.elev = elev;
 	}
-	
+	/*
+	 * These methods will get the different variables of the City
+	 */
 	public String getName()
 	{
 		return name;

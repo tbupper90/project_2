@@ -1,21 +1,32 @@
 import java.util.*;
-
+/*
+ * This Class creates a continent object
+ */
 public class Continent 
 {
+	/*
+	 * These are the arraylist of countries and the variables of
+	 * the continent class
+	 */
 	private static ArrayList<Country> countries;
 	
 	private String name;
 	private String pop;
 	private String area;
 	
-	
+	/*
+	 * creates a continent object
+	 */
 	public Continent(String name, String pop, String area)
 	{
 		this.name = name;
 		this.pop = pop;
 		this.area = area;
 	}
-	
+	/*
+	 * these methods will get the different variables of the 
+	 * continent object
+	 */
 	public String getName()
 	{
 		return name;
@@ -30,7 +41,9 @@ public class Continent
 	{
 		return area;
 	}
-	
+	/*
+	 * This method will add a country to the 
+	 */
 	public void addCountry(Country country)
 	{
 		

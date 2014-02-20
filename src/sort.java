@@ -1,8 +1,13 @@
 import java.util.ArrayList;
 
-
+/*
+ * This class contains all of the Sort methods
+ */
 public class sort 
 {
+	/*
+	 * These are the different sort methods
+	 */
 	public static void sortByArea(ArrayList<?> list)
 	{
 		

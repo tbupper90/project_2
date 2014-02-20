@@ -1,9 +1,14 @@
 import java.util.*;
 
-
+/*
+ * this class creates a Country object
+ */
 public class Country 
 {
-	
+	/*
+	 * an arraylist of cities, as well as the variables for a country
+	 * object
+	 */
 	private static ArrayList<City> cities;
 	
 	private String name;
@@ -11,7 +16,9 @@ public class Country
 	private String area;
 	private String continent;
 	
-	
+	/*
+	 * creates a Country object
+	 */
 	public Country(String name, String pop, String area, String continent)
 	{
 		this.name = name;
@@ -19,7 +26,10 @@ public class Country
 		this.area = area;
 		this.continent = continent;
 	}
-	
+	/*
+	 * these methods will get the different variables of
+	 * the City object
+	 */
 	public String getName()
 	{
 		return name;
@@ -39,7 +49,9 @@ public class Country
 	{
 		return continent;
 	}
-	
+	/*
+	 * this method will add a city to the city array list
+	 */
 	public void addCountry(City city)
 	{
 		
