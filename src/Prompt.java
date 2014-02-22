@@ -60,29 +60,49 @@ public class Prompt
 		                      "All countries in a continent",
 		                      "All cities within a country"};
 		
-		Object result = JOptionPane.showInputDialog(null, "Select one:",
+		Object choice = JOptionPane.showInputDialog(null, "Show information for:",
 		        "What type of data?", JOptionPane.QUESTION_MESSAGE, null,
 		        dataChoices, dataChoices[0]);
 		
-		if (result.equals(dataChoices[3])) {
-		    result = "_allcountry_" + JOptionPane.showInputDialog(null,
+		if (choice.equals(dataChoices[3]))
+		{
+		    choice = "_countrieswithin_" + JOptionPane.showInputDialog(null,
 		            "Which continent?");
 		    // Add while loop later to confirm valid entry
-		} else if (result.equals(dataChoices[4])) {
-            result = "_allcity_" + JOptionPane.showInputDialog(null,
+		}
+		else if (choice.equals(dataChoices[4]))
+		{
+            choice = "_citieswithin_" + JOptionPane.showInputDialog(null,
                     "Which country?");		    
             // Add while loop later to confirm valid entry
 		}
 		
-		return result.toString();
+		return choice.toString();
 	}
 	/*
 	 * this will get the way the data will be sorted
 	 * (elevation, population, name etc)
 	 */
-	public static ArrayList getSortMethod()
+	public static String getSortMethod(String dataType)
 	{
-		return null;
+        String[] sortChoices;
+	    if (dataType.contains("cities"))
+        {
+            sortChoices = new String[] {"Area", "Population", "Latitude",
+                                        "Longitude", "Elevation",
+                                        "Lexicographic", "Random"};
+        }
+        else
+        {
+            sortChoices = new String[] {"Area", "Population", "Lexicographic",
+                                        "Random"};
+        }
+
+        Object choice = JOptionPane.showInputDialog(null, "Sort by:",
+                "How to sort the data?", JOptionPane.QUESTION_MESSAGE, null,
+                sortChoices, sortChoices[0]);
+        
+        return choice.toString();
 	}
 	/*
 	 * this will determine whether to output to console, file, or

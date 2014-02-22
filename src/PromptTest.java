@@ -15,21 +15,23 @@ public class PromptTest {
     }
     */
 
+    /*
     @Test
     public void testGetDataType() {
         // No asserts; dependent on user input
         System.out.println(Prompt.getDataType());
     }
+    */
     
-    /*
     @Test
     public void testGetSortMethod() {
         // No asserts; dependent on user input
         // Tests for actual sorting methods are in SortTest.java
-        ArrayList<?> list = Prompt.getSortMethod();
-        System.out.println(list.getClass());
+        String data = Prompt.getDataType();
+        System.out.println(Prompt.getSortMethod(data));
     }
 
+    /*
     @Test
     public void testGetOutputPreference() {
         // Make sure user input works
