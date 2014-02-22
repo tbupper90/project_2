@@ -8,7 +8,7 @@ import java.util.*;
 public class City 
 {
 	/*
-	 * This will add the speicife variables to the
+	 * This will add the specific variables to the
 	 * City Object
 	 */
 	private String name;

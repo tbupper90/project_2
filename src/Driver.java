@@ -9,7 +9,7 @@ public class Driver
 {	
 	
 	private static ArrayList list;
-	private static ArrayList<Continent> continents;
+	private static ArrayList<Continent> continents = new ArrayList<Continent>();
 	private static String continentsFile;
 	private static String countriesFile;
 	private static String citiesFile;
@@ -19,19 +19,16 @@ public class Driver
 	 */
 	public static void main(String[] args) throws IOException
 	{
-		String[] files = new String[3];
 		
-		files = Prompt.getFiles();
-		
-		continentsFile = files[0];
-		countriesFile = files[1];
-		citiesFile = files[2];
+		continentsFile = args[0];
+		countriesFile = args[1];
+		citiesFile = args[2];
 		
 		readFile(continentsFile);
 		readFile(countriesFile);
 		readFile(citiesFile);
 		
-		
+		System.out.println(continents);
 		
 	}
 	/*
@@ -71,7 +68,7 @@ public class Driver
 	 */
 	private static void parseLine(String line, String file)
 	{
-		String[] array = line.split(",");
+		String[] array = line.split(", ");
 		
 		assignVariables(array, file);
 	}
@@ -82,25 +79,34 @@ public class Driver
 	 */
 	private static void assignVariables(String[] array, String file)
 	{		
-		if(file == continentsFile)
+		if(file.equals(continentsFile))
 		{
-			Continent continent = new Continent(array[0],array[1],array[2]);
-			continents.add(continent);
+			//Continent continent = new Continent(array[0],array[1],array[2]);
+			//System.out.println(continent);
+			continents.add(new Continent(array[0],array[1],array[2]));
+			System.out.println(continents);
+			
+			
+			
 		}
 		
-		else if(file == countriesFile)
+		if(file.equals(countriesFile))
 		{
-			for(Continent i:continents)
+			Country country = new Country(array[0],array[1],array[2],array[3]);
+			
+			for(Continent continent : continents)
 			{
-				if(array[4] == i.getName())
+				if(continent.getName().equals(country.getContinent()))
 				{
-					Country country = new Country(array[0],array[1],array[2],array[3]);
-					i.addCountry(country);					
+					continent.countries.add(country);
+//					System.out.println(continent);
+					break;
 				}
 			}
-		}
+			
+		}//end else if
 		
-		else if(file == citiesFile)
+		else if(file.equals(citiesFile))
 		{
 			
 		}

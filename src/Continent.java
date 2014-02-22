@@ -8,7 +8,7 @@ public class Continent
 	 * These are the arraylist of countries and the variables of
 	 * the continent class
 	 */
-	private static ArrayList<Country> countries;
+	ArrayList<Country> countries = new ArrayList<Country>();
 	
 	private String name;
 	private String pop;
@@ -46,7 +46,17 @@ public class Continent
 	 */
 	public void addCountry(Country country)
 	{
-		
+		countries.add(country);
 	}
-
+	
+	public ArrayList<Country> getCountries()
+	{
+		return countries;
+	}
+	
+	public String toString()
+	{
+		return name + ": " + countries + "\n";
+	}
+	
 }

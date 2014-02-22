@@ -52,6 +52,6 @@ public class Prompt
 	 */
 	public static boolean getContinue()
 	{
-		return null;
+		return true;
 	}
 }
