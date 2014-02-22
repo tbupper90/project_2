@@ -12,6 +12,8 @@ public class PromptTest {
         // Make sure user input works
         Prompt.getFiles();
     }
+    
+    /*
 
     @Test
     public void testGetDataType() {
@@ -40,5 +42,7 @@ public class PromptTest {
         boolean testExit = Prompt.getContinue();
         System.out.println(testExit);
     }
+    
+    */
 
 }
