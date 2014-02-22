@@ -24,6 +24,7 @@ public class sort
 	
 	public static void sortByLat(ArrayList<City> cities)
 	{
+		
 	}
 	
 	public static void sortByLon(ArrayList<City> cities)
