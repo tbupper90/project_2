@@ -2,7 +2,7 @@ import java.util.*;
 /*
  * This Class creates a continent object
  */
-public class Continent 
+public class Continent
 {
 	/*
 	 * These are the arraylist of countries and the variables of
@@ -58,5 +58,7 @@ public class Continent
 	{
 		return name + ": " + countries + "\n";
 	}
+	
+	
 	
 }

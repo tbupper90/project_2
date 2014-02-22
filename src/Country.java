@@ -3,7 +3,7 @@ import java.util.*;
 /*
  * this class creates a Country object
  */
-public class Country 
+public class Country extends Region
 {
 	/*
 	 * an arraylist of cities, as well as the variables for a country
@@ -11,9 +11,7 @@ public class Country
 	 */
 	ArrayList<City> cities = new ArrayList<City>();
 	
-	private String name;
-	private String pop;
-	private String area;
+
 	private String continent;
 	
 	/*
@@ -30,20 +28,6 @@ public class Country
 	 * these methods will get the different variables of
 	 * the City object
 	 */
-	public String getName()
-	{
-		return name;
-	}
-	
-	public String getPop()
-	{
-		return pop;
-	}
-	
-	public String getArea()
-	{
-		return area;
-	}
 	
 	public String getContinent()
 	{
@@ -62,5 +46,27 @@ public class Country
 		return name;
 	}
 	
-	
+	public static class Comparators
+	{
+		public static Comparator<Country> AREA = new Comparator<Country>()
+		{
+			@Override
+			public int compare(Country o1, Country o2)
+			{
+				if(o1.getArea().compareTo(o2.getArea()) < 0)
+				{
+					return -1;
+				}
+				
+				else if(o1.getArea().compareTo(o2.getArea()) > 0)
+				{
+					return 1;
+				}
+				
+				else return 0;
+			}
+		};
+	}
 }
+
+
