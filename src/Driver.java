@@ -28,7 +28,6 @@ public class Driver
 		readFile(countriesFile);
 		readFile(citiesFile);
 		
-		System.out.println(continents);
 		
 	}
 	/*
@@ -81,16 +80,10 @@ public class Driver
 	{		
 		if(file.equals(continentsFile))
 		{
-			//Continent continent = new Continent(array[0],array[1],array[2]);
-			//System.out.println(continent);
-			continents.add(new Continent(array[0],array[1],array[2]));
-			System.out.println(continents);
-			
-			
-			
+			continents.add(new Continent(array[0],array[1],array[2]));	
 		}
 		
-		if(file.equals(countriesFile))
+		else if(file.equals(countriesFile))
 		{
 			Country country = new Country(array[0],array[1],array[2],array[3]);
 			
@@ -99,7 +92,6 @@ public class Driver
 				if(continent.getName().equals(country.getContinent()))
 				{
 					continent.countries.add(country);
-//					System.out.println(continent);
 					break;
 				}
 			}
@@ -108,6 +100,40 @@ public class Driver
 		
 		else if(file.equals(citiesFile))
 		{
+			
+			if(array.length == 7)
+			{
+				City city = new City(array[0],array[1],array[2],array[3],array[4],array[5],array[6]);
+				
+				for(Continent continent : continents)
+				{
+					for(Country country : continent.countries)
+					{
+						if(country.getName().equals(city.getCountry()))
+						{
+							country.cities.add(city);
+							System.out.println(city.getName() + " added to " + country.getName());
+						}
+					}//end country for
+				}//end continent for
+			}//end if 
+			
+			else
+			{
+				City city = new City(array[0],array[1],array[2],array[3]);
+				
+				for(Continent continent : continents)
+				{
+					for(Country country : continent.countries)
+					{
+						if(country.getName().equals(city.getCountry()))
+						{
+							country.cities.add(city);
+							System.out.println(city.getName() + " added to " + country.getName());
+						}
+					}//end country for
+				}//end continent for
+			}//end else
 			
 		}
 		

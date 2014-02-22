@@ -9,7 +9,7 @@ public class Country
 	 * an arraylist of cities, as well as the variables for a country
 	 * object
 	 */
-	private static ArrayList<City> cities = new ArrayList<City>();
+	ArrayList<City> cities = new ArrayList<City>();
 	
 	private String name;
 	private String pop;
