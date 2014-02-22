@@ -24,7 +24,7 @@ public class sort
 	
 	public static ArrayList<City> sortByLat(ArrayList<City> cities)
 	{
-		Collection.sort(cities, City.LAT);
+		Collections.sort(cities, City.Comparators.LAT);
 		return cities;
 		
 	}

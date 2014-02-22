@@ -9,8 +9,21 @@ public class Continent extends Region
 	 * the continent class
 	 */
 	ArrayList<Country> countries = new ArrayList<Country>();
+	HashMap<String, Country> countriesHash = new HashMap<String,Country>();
 	
-
+	public void makeHashMap()
+	{
+		for(Country country : countries)
+		{
+			countriesHash.put(country.name, country);
+			country.makeHashMap();
+		}
+	}
+	
+	public HashMap getHashMap()
+	{
+		return countriesHash;
+	}
 	
 	/*
 	 * creates a continent object
