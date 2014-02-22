@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-
+import java.util.*;
 /*
  * This class will get the files as well as user input
  */
@@ -8,8 +7,20 @@ public class Prompt
 	/*
 	 * This method will get the Files
 	 */
-	public static void getFiles()
+	public static String[] getFiles()
 	{
+		Scanner input = new Scanner(System.in);
+		String[] files = new String[3];
+		
+		System.out.println("Enter the continents file:");
+		files[0] = input.next();
+		System.out.println("Enter the country file:");
+		files[1] = input.next();
+		System.out.println("Enter the cities file:");
+		files[2] = input.next();
+		
+		return files;
+		
 		
 	}
 	/*
