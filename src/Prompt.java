@@ -176,28 +176,31 @@ public class Prompt
 	 */
 	public static boolean getContinue()
 	{
-        JDialog dialog = null;
+        // Create an array of radio buttons
+        JRadioButton[] buttons = new JRadioButton[2];
+        buttons[0] = new JRadioButton("Yes");
+        buttons[1] = new JRadioButton("No");
+        // Make a group out of the radio buttons so only one can be selected
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(buttons[0]);
+        buttonGroup.add(buttons[1]);
+        // Make a "JPanel" with 2 rows and 1 column on which to put the buttons
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(2,1));
+        panel.add(buttons[0]);
+        panel.add(buttons[1]);
+        // Create a "JOptionPane" on which to put the JPanel
         JOptionPane optionPane = new JOptionPane();
         optionPane.setMessage("Continue?");
         optionPane.setMessageType(JOptionPane.QUESTION_MESSAGE);
-
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(3,1));
-        ButtonGroup buttonGroup = new ButtonGroup();
-        String[] buttonTxt = {"Yes","No"};
-        JRadioButton[] buttons = new JRadioButton[buttonTxt.length];
-        for (int i = 0; i < buttonTxt.length; i++)
-        {
-            buttons[i] = new JRadioButton(buttonTxt[i]);
-            buttonGroup.add(buttons[i]);
-            panel.add(buttons[i]);
-        }
-        optionPane.setOptionType(JOptionPane.DEFAULT_OPTION);
+        // The 1 puts the panel (with buttons) between "Continue?" and "OK"
+        // 0 would put it above both, and 2 would put it at the bottom
         optionPane.add(panel, 1);
-        dialog = optionPane.createDialog(null, "Icon/Text Button");
-        dialog.setVisible(true);
-        System.out.println(buttons[0].isSelected());
+        // Create a JDialog 
+        JDialog continueDialog = optionPane.createDialog(null, "Select one");
+        continueDialog.setVisible(true);
 		
-	    return true;
+        // Return the state of the "yes" button
+	    return buttons[0].isSelected();
 	}
 }
