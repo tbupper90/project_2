@@ -7,21 +7,21 @@ import org.junit.Test;
 
 public class PromptTest {
 
+    /*
     @Test
     public void testGetFiles() {
         // Make sure user input works
         Prompt.getFiles();
     }
-    
-    /*
+    */
 
     @Test
     public void testGetDataType() {
         // No asserts; dependent on user input
-        ArrayList<?> list = Prompt.getDataType();
-        System.out.println(list.getClass());
+        System.out.println(Prompt.getDataType());
     }
-
+    
+    /*
     @Test
     public void testGetSortMethod() {
         // No asserts; dependent on user input
