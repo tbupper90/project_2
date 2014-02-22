@@ -1,4 +1,5 @@
 import java.util.*;
+import java.awt.GridLayout;
 import java.io.*;
 
 import javax.swing.*;
@@ -175,6 +176,28 @@ public class Prompt
 	 */
 	public static boolean getContinue()
 	{
-		return true;
+        JDialog dialog = null;
+        JOptionPane optionPane = new JOptionPane();
+        optionPane.setMessage("Continue?");
+        optionPane.setMessageType(JOptionPane.QUESTION_MESSAGE);
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(3,1));
+        ButtonGroup buttonGroup = new ButtonGroup();
+        String[] buttonTxt = {"Yes","No"};
+        JRadioButton[] buttons = new JRadioButton[buttonTxt.length];
+        for (int i = 0; i < buttonTxt.length; i++)
+        {
+            buttons[i] = new JRadioButton(buttonTxt[i]);
+            buttonGroup.add(buttons[i]);
+            panel.add(buttons[i]);
+        }
+        optionPane.setOptionType(JOptionPane.DEFAULT_OPTION);
+        optionPane.add(panel, 1);
+        dialog = optionPane.createDialog(null, "Icon/Text Button");
+        dialog.setVisible(true);
+        System.out.println(buttons[0].isSelected());
+		
+	    return true;
 	}
 }

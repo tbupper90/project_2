@@ -23,6 +23,7 @@ public class PromptTest {
     }
     */
     
+    /*
     @Test
     public void testGetSortMethod() {
         // No asserts; dependent on user input
@@ -30,14 +31,15 @@ public class PromptTest {
         String data = Prompt.getDataType();
         System.out.println(Prompt.getSortMethod(data));
     }
-
+    */
+    
     /*
     @Test
     public void testGetOutputPreference() {
         // Make sure user input works
         Prompt.getOutputPreference();
     }
-
+    */
     @Test
     public void testGetContinue() {
         // Make sure user input works and reflects intent; display the result
@@ -45,6 +47,6 @@ public class PromptTest {
         System.out.println(testExit);
     }
     
-    */
+    
 
 }
