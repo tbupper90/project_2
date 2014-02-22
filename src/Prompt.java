@@ -1,4 +1,6 @@
 import java.util.*;
+
+import javax.swing.*;
 /*
  * This class will get the files as well as user input
  */
@@ -9,7 +11,8 @@ public class Prompt
 	 */
 	public static String[] getFiles()
 	{
-		Scanner input = new Scanner(System.in);
+		/*
+	    Scanner input = new Scanner(System.in);
 		String[] files = new String[3];
 		
 		System.out.println("Enter the continents file:");
@@ -20,7 +23,30 @@ public class Prompt
 		files[2] = input.next();
 		
 		return files;
-		
+		*/    
+	    JTextField contField = new JTextField(10);
+        JTextField countryField = new JTextField(10);
+        JTextField cityField = new JTextField(10);
+
+        JPanel myPanel = new JPanel();
+        myPanel.add(new JLabel("Continents:"));
+        myPanel.add(contField);
+        myPanel.add(Box.createHorizontalStrut(15)); // a spacer
+        myPanel.add(new JLabel("Countries:"));
+        myPanel.add(countryField);
+        myPanel.add(Box.createHorizontalStrut(15)); // a spacer
+        myPanel.add(new JLabel("Cities:"));
+        myPanel.add(cityField);
+	    
+        int result = JOptionPane.showConfirmDialog(null, myPanel, 
+                "Please enter names of files:", JOptionPane.OK_CANCEL_OPTION);
+        
+        String[] files = {contField.getText(), countryField.getText(), cityField.getText()};
+        if (result == JOptionPane.CANCEL_OPTION)
+        {
+            System.exit(0);
+        }
+        return files;
 		
 	}
 	/*
