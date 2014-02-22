@@ -5,7 +5,7 @@ import java.util.*;
  * 
  */
 
-public class City extends Region 
+public class City extends Region implements comparator 
 {
 	/*
 	 * This will add the specific variables to the
@@ -68,7 +68,23 @@ public class City extends Region
 		return elev;
 	}
 	
-	
+	 public static Comparator<City> LAT = new Comparator<City>()
+	 {
+		@Override
+		public int compare(City o1, City o2)
+		{
+			if(o1.getLat().compareTo(o2.getLat()) < 0)
+			{
+				return -1;
+			}
+			else if(o1.getLat().compareTo(o2.getLat()) > 0)
+			{
+				return 1;
+			}
+			else return 0;
+		}
+	 };
+
 	
 	
 }

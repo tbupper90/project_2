@@ -41,5 +41,4 @@ public class Continent extends Region
 	}
 	
 	
-	
 }

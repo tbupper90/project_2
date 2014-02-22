@@ -22,8 +22,10 @@ public class sort
 		return list;
 	}
 	
-	public static void sortByLat(ArrayList<City> cities)
+	public static ArrayList<City> sortByLat(ArrayList<City> cities)
 	{
+		Collection.sort(cities, City.LAT);
+		return cities;
 		
 	}
 	
@@ -43,7 +45,7 @@ public class sort
 		return list;
 	}
 	
-	public static void sortRandomly(ArrayList<?> list)
+	public static void sortRandomly(ArrayList<Region> list)
 	{
 		
 	}

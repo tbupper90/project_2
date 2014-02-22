@@ -28,20 +28,10 @@ public class Driver
 		readFile(countriesFile);
 		readFile(citiesFile);
 		
-		list = continents.get(0).countries;
-		System.out.println(list);
+		
+		
 
-		sort.sortByArea(list);
 		
-		System.out.println(list);
-		
-		sort.sortByPopulation(list);
-		
-		System.out.println(list);
-		
-		sort.sortLexi(list);
-		
-		System.out.println(list);
 		
 //`		System.out.println(continents.get(0).getClass());
 		

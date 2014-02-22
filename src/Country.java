@@ -46,28 +46,24 @@ public class Country extends Region
 		return name;
 	}
 	
-	public static class Comparators
-	{
-		public static Comparator<Country> AREA = new Comparator<Country>()
+	/*	
+	 public static Comparator<Region> NAME = new Comparator<Region>()
+	 {
+		@Override
+		public int compare(Region o1, Region o2)
 		{
-			@Override
-			public int compare(Country o1, Country o2)
+			if(o1.getName().compareTo(o2.getName()) < 0)
 			{
-				if(o1.getArea().compareTo(o2.getArea()) < 0)
-				{
-					return -1;
-				}
-				
-				else if(o1.getArea().compareTo(o2.getArea()) > 0)
-				{
-					return 1;
-				}
-				
-				else return 0;
+				return -1;
 			}
-		};
-		
-	}
+			else if(o1.getName().compareTo(o2.getName()) > 0)
+			{
+				return 1;
+			}
+			else return 0;
+		}
+	 };
+	*/
 }
 
 
