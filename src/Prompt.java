@@ -53,9 +53,27 @@ public class Prompt
 	 * This method will get the data type the user inputs
 	 * (country,city,continent)
 	 */
-	public static ArrayList getDataType()
+	public static String getDataType()
 	{
-		return null;
+		String[] dataChoices = {"All continents", "All countries", "All cities",
+		                      "All countries in a continent",
+		                      "All cities within a country"};
+		
+		Object result = JOptionPane.showInputDialog(null, "Select one:",
+		        "What type of data?", JOptionPane.QUESTION_MESSAGE, null,
+		        dataChoices, dataChoices[0]);
+		
+		if (result.equals(dataChoices[3])) {
+		    result = "_allcountry_" + JOptionPane.showInputDialog(null,
+		            "Which continent?");
+		    // Add while loop later to confirm valid entry
+		} else if (result.equals(dataChoices[4])) {
+            result = "_allcity_" + JOptionPane.showInputDialog(null,
+                    "Which country?");		    
+            // Add while loop later to confirm valid entry
+		}
+		
+		return result.toString();
 	}
 	/*
 	 * this will get the way the data will be sorted
