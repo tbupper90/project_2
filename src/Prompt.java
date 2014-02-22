@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 import javax.swing.*;
 /*
@@ -87,8 +88,44 @@ public class Prompt
 	 * this will determine whether to output to console, file, or
 	 * get further data
 	 */
-	public static void getOutputPreference()
+	public static void getOutputPreference(ArrayList list) throws IOException
 	{
+		Scanner input = new Scanner(System.in);
+		String preference = null;
+		System.out.println("What would you like to ouput to");
+		preference = input.nextLine();
+		if(preference.equals("PS"))
+		{
+			System.out.println(list);
+		}
+		if(preference.equals("PF"))
+		{
+			System.out.println("What is the file name?:");
+			String filename = input.nextLine();
+			fileWriter(list,filename);
+		}
+		if(preference.equals("SP"))
+		{
+			
+		}
+
+		
+	}
+	/*
+	 * This writes the information to a file determined by the User
+	 */
+	public static void fileWriter (ArrayList list, String filename) throws IOException
+	{
+		FileWriter outfile = new FileWriter(filename);
+		BufferedWriter bw = new BufferedWriter(outfile);
+		String line = null;
+		for(int i = 0; i < list.size()-1; i++)
+		{
+			line = list.get(i).toString();
+			bw.write(line);
+			bw.newLine();
+		}
+		bw.close();
 		
 	}
 	/*
