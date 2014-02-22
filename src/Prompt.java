@@ -126,7 +126,12 @@ public class Prompt
 		}
 		if(preference.equals("SP"))
 		{
+			System.out.println("What country do you wish to know more about?");
+			String region = input.nextLine();
 			
+
+
+
 		}
 
 		
@@ -148,6 +153,23 @@ public class Prompt
 		bw.close();
 		
 	}
+
+	public static String searchRegion (ArrayList list, String region)
+	{
+		Scanner input = new Scanner(System.in);
+		String check = null;
+		for(int i = 0; i <list.size()-1;i++)
+			{
+			check = list.get(i).toString().toLowerCase();
+			if(check.contains(region.toLowerCase()))
+				{
+					return check;
+				}
+			}
+		System.out.println("Invalid Region, Please re-enter the region:");
+		region = input.nextLine();
+		return searchRegion(list, region);
+	}	
 	/*
 	 * this will determine whether to continue with the program
 	 */
