@@ -1,19 +1,17 @@
 import java.util.*;
 /*
- * This class wil create a City Object
+ * This class will create a City Object
  * 
  * 
  */
 
-public class City 
+public class City extends Region 
 {
 	/*
 	 * This will add the specific variables to the
 	 * City Object
 	 */
-	private String name;
-	private String pop; 
-	private String area;
+
 	private String country;
 	private String lat;
 	private String lon;
@@ -49,20 +47,6 @@ public class City
 	/*
 	 * These methods will get the different variables of the City
 	 */
-	public String getName()
-	{
-		return name;
-	}
-	
-	public String getPop()
-	{
-		return pop;
-	}
-	
-	public String getArea()
-	{
-		return area;
-	}
 	
 	public String getCountry()
 	{

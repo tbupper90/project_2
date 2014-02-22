@@ -16,9 +16,10 @@ public class sort
 		
 	}
 	
-	public static <E> void sortByPopulation(ArrayList<E> list)
+	public static ArrayList<Region>  sortByPopulation(ArrayList<Region> list)
 	{
-		
+		Collections.sort(list, Region.Comparators.POP);
+		return list;
 	}
 	
 	public static void sortByLat(ArrayList<City> cities)
@@ -35,9 +36,10 @@ public class sort
 		
 	}
 	
-	public static void sortLexi(ArrayList<?> list)
+	public static ArrayList<Region> sortLexi(ArrayList<Region> list)
 	{
-		//Collections.sort(list);
+		Collections.sort(list, Region.Comparators.NAME);
+		return list;
 	}
 	
 	public static void sortRandomly(ArrayList<?> list)

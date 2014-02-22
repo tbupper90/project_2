@@ -66,6 +66,7 @@ public class Country extends Region
 				else return 0;
 			}
 		};
+		
 	}
 }
 
