@@ -14,7 +14,8 @@ public class Driver
 	private static String countriesFile;
 	private static String citiesFile;
 	
-	private static Map<String, Continent> continentsHash = new HashMap<String, Continent>();
+	private static HashMap<String, Continent> continentsHash = new HashMap<String, Continent>();
+	
 	
 	
 	/*
@@ -30,21 +31,28 @@ public class Driver
 		readFile(continentsFile);
 		readFile(countriesFile);
 		readFile(citiesFile);
+				
+		makeHashMaps(continents);
+			
 		
-		
-		for(Continent continent : continents)
-		{
-			continentsHash.put(continent.getName(), continent);
-			continent.makeHashMap();
-		}
-		
-		
-		System.out.println(continentsHash.get("Africa").countriesHash.get("Uganda"));
 		
 		
 		
 		
 	}
+	
+	
+	public static void makeHashMaps(ArrayList<Continent> list)
+	{
+		for(Continent continent : list)
+		{
+			continentsHash.put(continent.getName(), continent);
+			continent.makeHashMap();
+		}	
+		
+	}
+	
+	
 	/*
 	 * this method reads in the file
 	 */

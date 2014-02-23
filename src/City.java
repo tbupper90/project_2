@@ -27,9 +27,9 @@ public class City extends Region
 		this.pop = pop;
 		this.area = area;
 		this.country = country;
-		this.lat = null;
-		this.lon = null;
-		this.elev = null;
+		this.lat = "";
+		this.lon = "";
+		this.elev = "";
 	}
 	/*
 	 * This method will create a city object with all variables filled
@@ -93,6 +93,50 @@ public class City extends Region
 				else return 0;
 			}
 		};
+		
+		public static Comparator<City> LON = new Comparator<City>()
+		{
+			@Override
+			public int compare(City o1, City o2)
+			{
+				if(o1.getLon().compareTo(o2.getLon()) < 0)
+				{
+					System.out.println(o1.getLon() + " " + o2.getLon());
+					System.out.println("-1");
+					return -1;
+				}
+				
+				else if(o1.getLon().compareTo(o2.getLon()) > 0)
+				{
+					System.out.println(o1.getLon() + " " + o2.getLon());
+					System.out.println("1");
+					return 1;
+				}
+				
+				else return 0;
+			}
+		};
+		
+		public static Comparator<City> ELEV = new Comparator<City>()
+		{
+			@Override
+			public int compare(City o1, City o2)
+			{
+				if(o1.getElev().compareTo(o2.getElev()) < 0)
+				{
+					return -1;
+				}
+				
+				else if(o1.getElev().compareTo(o2.getElev()) > 0)
+				{
+					return 1;
+				}
+				
+				else return 0;
+			}
+		};
+		
+	
 	}
 
 

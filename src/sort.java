@@ -29,14 +29,16 @@ public class sort
 		
 	}
 	
-	public static void sortByLon(ArrayList<City> cities)
+	public static ArrayList<City> sortByLon(ArrayList<City> cities)
 	{
-		
+		Collections.sort(cities, City.Comparators.LON);
+		return cities;
 	}
 	
-	public static void sortByElev(ArrayList<City> cities)
+	public static ArrayList<City> sortByElev(ArrayList<City> cities)
 	{
-		
+		Collections.sort(cities, City.Comparators.ELEV);
+		return cities;
 	}
 	
 	public static ArrayList<Region> sortLexi(ArrayList<Region> list)
@@ -45,9 +47,10 @@ public class sort
 		return list;
 	}
 	
-	public static void sortRandomly(ArrayList<Region> list)
+	public static ArrayList<Region> sortRandomly(ArrayList<Region> list)
 	{
-		
+		Collections.shuffle(list);
+		return list;
 	}
 	
 	
