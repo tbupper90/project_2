@@ -13,43 +13,29 @@ public class Prompt
 	 */
 	public static String[] getFiles()
 	{
-		/*
-	    Scanner input = new Scanner(System.in);
-		String[] files = new String[3];
-		
-		System.out.println("Enter the continents file:");
-		files[0] = input.next();
-		System.out.println("Enter the country file:");
-		files[1] = input.next();
-		System.out.println("Enter the cities file:");
-		files[2] = input.next();
-		
-		return files;
-		*/    
 	    JTextField contField = new JTextField(10);
         JTextField countryField = new JTextField(10);
         JTextField cityField = new JTextField(10);
 
-        JPanel myPanel = new JPanel();
-        myPanel.add(new JLabel("Continents:"));
-        myPanel.add(contField);
-        myPanel.add(Box.createHorizontalStrut(15)); // a spacer
-        myPanel.add(new JLabel("Countries:"));
-        myPanel.add(countryField);
-        myPanel.add(Box.createHorizontalStrut(15)); // a spacer
-        myPanel.add(new JLabel("Cities:"));
-        myPanel.add(cityField);
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(3,2));
+        panel.add(new JLabel("Continents:"));
+        panel.add(contField);
+        panel.add(new JLabel("Countries:"));
+        panel.add(countryField);
+        panel.add(new JLabel("Cities:"));
+        panel.add(cityField);
 	    
-        int result = JOptionPane.showConfirmDialog(null, myPanel, 
+        int result = JOptionPane.showConfirmDialog(null, panel, 
                 "Please enter names of files:", JOptionPane.OK_CANCEL_OPTION);
-        
         String[] files = {contField.getText(), countryField.getText(), cityField.getText()};
+        
         if (result == JOptionPane.CANCEL_OPTION)
         {
             System.exit(0);
         }
-        return files;
-		
+
+        return files;		
 	}
 	/*
 	 * This method will get the data type the user inputs
@@ -57,28 +43,55 @@ public class Prompt
 	 */
 	public static String getDataType()
 	{
-		String[] dataChoices = {"All continents", "All countries", "All cities",
-		                      "All countries in a continent",
-		                      "All cities within a country"};
-		
-		Object choice = JOptionPane.showInputDialog(null, "Show information for:",
-		        "What type of data?", JOptionPane.QUESTION_MESSAGE, null,
-		        dataChoices, dataChoices[0]);
-		
-		if (choice.equals(dataChoices[3]))
-		{
-		    choice = "_countrieswithin_" + JOptionPane.showInputDialog(null,
-		            "Which continent?");
-		    // Add while loop later to confirm valid entry
-		}
-		else if (choice.equals(dataChoices[4]))
-		{
-            choice = "_citieswithin_" + JOptionPane.showInputDialog(null,
-                    "Which country?");		    
+        String[] dataChoices = {"All continents", "All countries", "All cities",
+                "All countries within a continent",
+                "All cities within a country"};
+        // Create radio buttons, a group in which to tie them together,
+        // and a panel on which to place them
+        JRadioButton[] buttons = new JRadioButton[dataChoices.length];
+        ButtonGroup buttonGroup = new ButtonGroup();
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(dataChoices.length,1));
+        // Construct each button, add it to the group, and add it to the panel
+        for (int i = 0; i < dataChoices.length; i++)
+        {
+            buttons[i] = new JRadioButton(dataChoices[i]);
+            buttonGroup.add(buttons[i]);
+            panel.add(buttons[i]);
+        }
+
+        // Create a "JOptionPane" on which to put the panel
+        JOptionPane optionPane = new JOptionPane();
+        optionPane.setMessage("Show information for:");
+        optionPane.setMessageType(JOptionPane.QUESTION_MESSAGE);
+        optionPane.add(panel, 1);
+        // Create a JDialog on which to display the JOptionPane, with panel 
+        JDialog continueDialog = optionPane.createDialog(null,
+                "What type of data?");
+        continueDialog.setVisible(true);
+
+        // Set the return String equal to the choice made
+        String result = "";
+        for (int i = 0; i < dataChoices.length; i++)
+        {
+            if (buttons[i].isSelected()) result = dataChoices[i];
+        }
+        
+        // Override choices for countries and cities within areas
+        if (buttons[3].isSelected())
+        {
+            result = "_countrieswithin_" + JOptionPane.showInputDialog(null,
+                    "Which continent?");
             // Add while loop later to confirm valid entry
-		}
-		
-		return choice.toString();
+        }
+        else if (buttons[4].isSelected())
+        {
+            result = "_citieswithin_" + JOptionPane.showInputDialog(null,
+                    "Which country?");          
+            // Add while loop later to confirm valid entry
+        }
+        	
+		return result;
 	}
 	/*
 	 * this will get the way the data will be sorted
@@ -87,7 +100,7 @@ public class Prompt
 	public static String getSortMethod(String dataType)
 	{
         String[] sortChoices;
-	    if (dataType.contains("cities"))
+        if (dataType.contains("cities"))
         {
             sortChoices = new String[] {"Area", "Population", "Latitude",
                                         "Longitude", "Elevation",
@@ -99,11 +112,38 @@ public class Prompt
                                         "Random"};
         }
 
-        Object choice = JOptionPane.showInputDialog(null, "Sort by:",
-                "How to sort the data?", JOptionPane.QUESTION_MESSAGE, null,
-                sortChoices, sortChoices[0]);
+        // Create radio buttons, a group in which to tie them together,
+        // and a panel on which to place them
+        JRadioButton[] buttons = new JRadioButton[sortChoices.length];
+        ButtonGroup buttonGroup = new ButtonGroup();
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(sortChoices.length,1));
+        // Construct each button, add it to the group, and add it to the panel
+        for (int i = 0; i < sortChoices.length; i++)
+        {
+            buttons[i] = new JRadioButton(sortChoices[i]);
+            buttonGroup.add(buttons[i]);
+            panel.add(buttons[i]);
+        }
+
+        // Create a "JOptionPane" on which to put the panel
+        JOptionPane optionPane = new JOptionPane();
+        optionPane.setMessage("Sort by:");
+        optionPane.setMessageType(JOptionPane.QUESTION_MESSAGE);
+        optionPane.add(panel, 1);
+        // Create a JDialog on which to display the JOptionPane, with panel 
+        JDialog continueDialog = optionPane.createDialog(null,
+                "Which information to sort by?");
+        continueDialog.setVisible(true);
+
+        // Set the return String equal to the choice made
+        String result = "";
+        for (int i = 0; i < sortChoices.length; i++)
+        {
+            if (buttons[i].isSelected()) result = sortChoices[i];
+        }            
         
-        return choice.toString();
+        return result;
 	}
 	/*
 	 * this will determine whether to output to console, file, or
@@ -176,31 +216,12 @@ public class Prompt
 	 */
 	public static boolean getContinue()
 	{
-        // Create an array of radio buttons
-        JRadioButton[] buttons = new JRadioButton[2];
-        buttons[0] = new JRadioButton("Yes");
-        buttons[1] = new JRadioButton("No");
-        // Make a group out of the radio buttons so only one can be selected
-        ButtonGroup buttonGroup = new ButtonGroup();
-        buttonGroup.add(buttons[0]);
-        buttonGroup.add(buttons[1]);
-        // Make a "JPanel" with 2 rows and 1 column on which to put the buttons
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(2,1));
-        panel.add(buttons[0]);
-        panel.add(buttons[1]);
-        // Create a "JOptionPane" on which to put the JPanel
-        JOptionPane optionPane = new JOptionPane();
-        optionPane.setMessage("Continue?");
-        optionPane.setMessageType(JOptionPane.QUESTION_MESSAGE);
-        // The 1 puts the panel (with buttons) between "Continue?" and "OK"
-        // 0 would put it above both, and 2 would put it at the bottom
-        optionPane.add(panel, 1);
-        // Create a JDialog 
-        JDialog continueDialog = optionPane.createDialog(null, "Select one");
-        continueDialog.setVisible(true);
-		
-        // Return the state of the "yes" button
-	    return buttons[0].isSelected();
+        int result = JOptionPane.showConfirmDialog(null, 
+                "Would you like to continue?", 
+                "Continue?", 
+                JOptionPane.YES_NO_OPTION); 
+        
+        return (result == JOptionPane.YES_OPTION);
+
 	}
 }

@@ -7,13 +7,13 @@ import org.junit.Test;
 
 public class PromptTest {
 
-    /*
+    
     @Test
     public void testGetFiles() {
         // Make sure user input works
         Prompt.getFiles();
     }
-    */
+    
 
     /*
     @Test
@@ -23,7 +23,7 @@ public class PromptTest {
     }
     */
     
-    /*
+    
     @Test
     public void testGetSortMethod() {
         // No asserts; dependent on user input
@@ -31,7 +31,7 @@ public class PromptTest {
         String data = Prompt.getDataType();
         System.out.println(Prompt.getSortMethod(data));
     }
-    */
+    
     
     /*
     @Test
@@ -40,6 +40,8 @@ public class PromptTest {
         Prompt.getOutputPreference();
     }
     */
+
+    
     @Test
     public void testGetContinue() {
         // Make sure user input works and reflects intent; display the result
