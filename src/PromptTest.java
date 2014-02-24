@@ -9,11 +9,32 @@ public class PromptTest {
 
     
     @Test
+    public void testMultiple() {
+        // Make sure user input works
+        String[] testFiles = Prompt.getFiles();
+        for (int i = 0; i < testFiles.length; i++)
+        {
+            System.out.println(testFiles[i]);            
+        }
+        
+        String testData = Prompt.getDataType();
+        System.out.println(testData);
+
+        String testSort = Prompt.getSortMethod(testData);
+        System.out.println(testSort);
+        
+        boolean testExit = Prompt.getContinue();
+        System.out.println(testExit);
+        
+    }
+
+    /*
+    @Test
     public void testGetFiles() {
         // Make sure user input works
         Prompt.getFiles();
     }
-    
+    */
 
     /*
     @Test
@@ -23,7 +44,7 @@ public class PromptTest {
     }
     */
     
-    
+    /*
     @Test
     public void testGetSortMethod() {
         // No asserts; dependent on user input
@@ -31,7 +52,7 @@ public class PromptTest {
         String data = Prompt.getDataType();
         System.out.println(Prompt.getSortMethod(data));
     }
-    
+    */
     
     /*
     @Test
@@ -41,14 +62,14 @@ public class PromptTest {
     }
     */
 
-    
+    /*
     @Test
     public void testGetContinue() {
         // Make sure user input works and reflects intent; display the result
         boolean testExit = Prompt.getContinue();
         System.out.println(testExit);
     }
-    
+    */
     
 
 }
