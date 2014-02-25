@@ -51,7 +51,7 @@ public class Country extends Region
 	
 	public String toString()
 	{
-		return name + " " + cities;
+		return name;
 	}
 	
 	/*	

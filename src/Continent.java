@@ -50,7 +50,7 @@ public class Continent extends Region
 	
 	public String toString()
 	{
-		return name + ": " + countries + "\n";
+		return name;
 	}
 	
 	

@@ -15,6 +15,8 @@ public class sortTest {
         testList.add(new City("Name3", "222", "11", "Coun3", "N2", "E1", "3"));
         return testList;
     }
+    
+    /*
     @Test
     public void testSortByArea() {
         ArrayList<City> list = makeTestList();
@@ -69,5 +71,7 @@ public class sortTest {
             }            
         }
     }
+    
+    */
 
 }

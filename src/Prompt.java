@@ -154,25 +154,24 @@ public class Prompt
 		Scanner input = new Scanner(System.in);
 		String preference = null;
 		System.out.println("What would you like to ouput to");
-		preference = input.nextLine();
+		preference = input.next();
 		if(preference.equals("PS"))
 		{
 			System.out.println(list);
+			return;
 		}
 		if(preference.equals("PF"))
 		{
 			System.out.println("What is the file name?:");
-			String filename = input.nextLine();
+			String filename = input.next();
 			fileWriter(list,filename);
+			return;
 		}
 		if(preference.equals("SP"))
 		{
 			System.out.println("What country do you wish to know more about?");
-			String region = input.nextLine();
-			
-
-
-
+			String region = input.next();
+			return;
 		}
 
 		

@@ -23,22 +23,47 @@ public class Driver
 	 */
 	public static void main(String[] args) throws IOException
 	{
+		boolean continueTest = true;
+		do{
+		//files are in args for simplicity
+//		continentsFile = args[0];
+//		countriesFile = args[1];
+//		citiesFile = args[2];
 		
-		continentsFile = args[0];
-		countriesFile = args[1];
-		citiesFile = args[2];
+		//get correct files
+		String[] files = Prompt.getFiles();
+		continentsFile = files[0];
+		countriesFile = files[1];
+		citiesFile = files[2];
 		
+		//read in the files and assign the data contained within
 		readFile(continentsFile);
 		readFile(countriesFile);
 		readFile(citiesFile);
-				
-		makeHashMaps(continents);
 			
+		String dataType = Prompt.getDataType();
 		
+//		System.out.println(dataType);
+				
+		list = sort.sortTypeOfData(continents, dataType);
 		
+//		System.out.println(list);
 		
+		String sortMethod = Prompt.getSortMethod(dataType);
 		
+//		System.out.println(sortMethod);
 		
+		list = sort.performSort(list, sortMethod);
+		
+//		System.out.println(list);
+		
+		Prompt.getOutputPreference(list);
+		
+		continueTest = Prompt.getContinue();
+		
+		}while(continueTest);
+		
+		System.exit(0);
 	}
 	
 	
