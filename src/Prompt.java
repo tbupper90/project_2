@@ -151,30 +151,56 @@ public class Prompt
 	 */
 	public static void getOutputPreference(ArrayList list) throws IOException
 	{
-		Scanner input = new Scanner(System.in);
-		String preference = null;
-		System.out.println("What would you like to ouput to");
-		preference = input.next();
-		if(preference.equals("PS"))
+		
+		
+		String [] options = {"Print to Screen","Print to File","Search for Particular Region"};
+		
+		
+		
+		
+		  JRadioButton[] buttons = new JRadioButton[options.length];
+	        ButtonGroup buttonGroup = new ButtonGroup();
+	        JPanel panel = new JPanel();
+	        panel.setLayout(new GridLayout(options.length,1));
+	        // Construct each button, add it to the group, and add it to the panel
+	        for (int i = 0; i < options.length; i++)
+	        {
+	            buttons[i] = new JRadioButton(options[i]);
+	            buttonGroup.add(buttons[i]);
+	            panel.add(buttons[i]);
+	        }
+
+	        // Create a "JOptionPane" on which to put the panel
+	        JOptionPane optionPane = new JOptionPane();
+	        optionPane.setMessage("What would you like to do?:");
+	        optionPane.setMessageType(JOptionPane.QUESTION_MESSAGE);
+	        optionPane.add(panel, 1);
+	        // Create a JDialog on which to display the JOptionPane, with panel 
+	        JDialog continueDialog = optionPane.createDialog(null,
+	                "Print/Search Option");
+	        continueDialog.setVisible(true);
+		
+		
+		if(buttons[0].isSelected())
 		{
 			System.out.println(list);
-			return;
+			
 		}
-		if(preference.equals("PF"))
+		else if(buttons[1].isSelected())
 		{
-			System.out.println("What is the file name?:");
-			String filename = input.next();
+			
+			String filename = JOptionPane.showInputDialog(null, "What is the filename?");
 			fileWriter(list,filename);
-			return;
+			
 		}
-		if(preference.equals("SP"))
+		else if(buttons[2].isSelected())
 		{
-			System.out.println("What country do you wish to know more about?");
-			String region = input.next();
-			return;
+			
+			String region = JOptionPane.showInputDialog(null, "What region would you like to know more about?");
+			
 		}
 
-		
+		return;
 	}
 	/*
 	 * This writes the information to a file determined by the User
