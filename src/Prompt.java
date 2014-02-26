@@ -1,4 +1,5 @@
 import java.util.*;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.io.*;
 
@@ -149,7 +150,7 @@ public class Prompt
 	 * this will determine whether to output to console, file, or
 	 * get further data
 	 */
-	public static void getOutputPreference(ArrayList list) throws IOException
+	public static void getOutputPreference(ArrayList<Region> list, ArrayList list2) throws IOException
 	{
 		
 		
@@ -183,8 +184,15 @@ public class Prompt
 		
 		if(buttons[0].isSelected())
 		{
-			System.out.println(list);
-			
+			String lists = "";
+			for(int i = 0; i <list.size(); i++)
+			{
+				lists = lists.concat(list.get(i).toString() + "\n");
+			}
+			lists = lists.substring(0, lists.length()-1);
+			JScrollPane scrollPane = new JScrollPane(new JTextArea(lists));
+			scrollPane.setPreferredSize(new Dimension(200,100));
+			JOptionPane.showMessageDialog(null, scrollPane, "List",JOptionPane.INFORMATION_MESSAGE);
 		}
 		else if(buttons[1].isSelected())
 		{
@@ -197,7 +205,7 @@ public class Prompt
 		{
 			
 			String region = JOptionPane.showInputDialog(null, "What region would you like to know more about?");
-			
+			searchRegion(list, region, list2);
 		}
 
 		return;
@@ -220,21 +228,23 @@ public class Prompt
 		
 	}
 
-	public static String searchRegion (ArrayList list, String region)
+	public static String searchRegion (ArrayList<Region> list, String region, ArrayList list2)
 	{
 		Scanner input = new Scanner(System.in);
 		String check = null;
 		for(int i = 0; i <list.size()-1;i++)
 			{
-			check = list.get(i).toString().toLowerCase();
+			check = list.get(i).toString().toLowerCase();			
 			if(check.contains(region.toLowerCase()))
 				{
+					
+					JOptionPane.showMessageDialog(null, check);
 					return check;
 				}
 			}
-		System.out.println("Invalid Region, Please re-enter the region:");
-		region = input.nextLine();
-		return searchRegion(list, region);
+		
+		region = JOptionPane.showInputDialog(null, "Invalid Region name, please enter a valid Region:");
+		return searchRegion(list, region, list2);
 	}	
 	/*
 	 * this will determine whether to continue with the program

@@ -8,7 +8,8 @@ import java.util.*;
 public class Driver 
 {	
 	
-	private static ArrayList list;
+	private static ArrayList<Region> list;
+	private static ArrayList<Region> list2;
 	private static ArrayList<Continent> continents = new ArrayList<Continent>();
 	private static String continentsFile;
 	private static String countriesFile;
@@ -43,21 +44,21 @@ public class Driver
 			
 		String dataType = Prompt.getDataType();
 		
-//		System.out.println(dataType);
+		System.out.println(list);
 				
 		list = sort.sortTypeOfData(continents, dataType);
 		
-//		System.out.println(list);
+		System.out.println(list.get(0));
 		
 		String sortMethod = Prompt.getSortMethod(dataType);
 		
-//		System.out.println(sortMethod);
+//		System.out.println(list);
 		
 		list = sort.performSort(list, sortMethod);
 		
 //		System.out.println(list);
 		
-		Prompt.getOutputPreference(list);
+		Prompt.getOutputPreference(list, list2);
 		
 		continueTest = Prompt.getContinue();
 		
