@@ -234,11 +234,12 @@ public class Prompt
 		String check = null;
 		for(int i = 0; i <list.size()-1;i++)
 			{
-			check = list.get(i).toString().toLowerCase();			
+			check = list.get(i).toString().toLowerCase();
+			
 			if(check.contains(region.toLowerCase()))
 				{
-					
-					JOptionPane.showMessageDialog(null, check);
+					String info = check + ", " + list.get(i).getArea()+ ", " + list.get(i).getPop();
+					JOptionPane.showMessageDialog(null, info);
 					return check;
 				}
 			}
