@@ -1,9 +1,8 @@
 import java.util.*;
-import java.awt.Dimension;
-import java.awt.GridLayout;
+import java.awt.*;
+import javax.swing.*;
 import java.io.*;
 
-import javax.swing.*;
 /*
  * This class will get the files as well as user input
  */
@@ -14,30 +13,36 @@ public class Prompt
 	 */
 	public static String[] getFiles()
 	{
-	    JTextField contField = new JTextField(10);
-        JTextField countryField = new JTextField(10);
-        JTextField cityField = new JTextField(10);
-
+	    String[] fieldTitles = {"Continents:", "Countries:", "Cities:"};
+	    JTextField[] textFields = new JTextField[fieldTitles.length];
+        String[] fileNames = new String[fieldTitles.length];
+	    
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(3,2));
-        panel.add(new JLabel("Continents:"));
-        panel.add(contField);
-        panel.add(new JLabel("Countries:"));
-        panel.add(countryField);
-        panel.add(new JLabel("Cities:"));
-        panel.add(cityField);
+
+        for (int i = 0; i < fieldTitles.length; i++)
+        {
+            textFields[i] = new JTextField(10);
+            panel.add(new JLabel(fieldTitles[i]));
+            panel.add(textFields[i]);            
+        }
 	    
         int result = JOptionPane.showConfirmDialog(null, panel, 
                 "Please enter names of files:", JOptionPane.OK_CANCEL_OPTION);
-        String[] files = {contField.getText(), countryField.getText(), cityField.getText()};
+
+        for (int i = 0; i < fieldTitles.length; i++)
+        {
+            fileNames[i] = textFields[i].getText();
+        }
         
         if (result == JOptionPane.CANCEL_OPTION)
         {
             System.exit(0);
         }
 
-        return files;		
+        return fileNames;		
 	}
+	
 	/*
 	 * This method will get the data type the user inputs
 	 * (country,city,continent)
@@ -94,6 +99,7 @@ public class Prompt
         	
 		return result;
 	}
+	
 	/*
 	 * this will get the way the data will be sorted
 	 * (elevation, population, name etc)
