@@ -58,7 +58,7 @@ public class Driver
 		
 //		System.out.println(list);
 		
-		Prompt.getOutputPreference(list, list2);
+		Prompt.getOutputPreference(list, list2, sortMethod);
 		
 		continueTest = Prompt.getContinue();
 		

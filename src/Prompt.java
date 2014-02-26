@@ -150,7 +150,7 @@ public class Prompt
 	 * this will determine whether to output to console, file, or
 	 * get further data
 	 */
-	public static void getOutputPreference(ArrayList<Region> list, ArrayList list2) throws IOException
+	public static void getOutputPreference(ArrayList<Region> list, ArrayList list2, String sortMethod) throws IOException
 	{
 		
 		
@@ -205,7 +205,7 @@ public class Prompt
 		{
 			
 			String region = JOptionPane.showInputDialog(null, "What region would you like to know more about?");
-			searchRegion(list, region, list2);
+			searchRegion(list, region, list2, sortMethod);
 		}
 
 		return;
@@ -228,24 +228,30 @@ public class Prompt
 		
 	}
 
-	public static String searchRegion (ArrayList<Region> list, String region, ArrayList list2)
+	public static String searchRegion (ArrayList<Region> list, String region, ArrayList list2,String sortMethod)
 	{
-		Scanner input = new Scanner(System.in);
+		
 		String check = null;
+		if(sortMethod.equals("Lexicographic"))
+		{
+			//should have a call to the Binary Search Method
+			//and return something similar to what i have in the other if statement
+		}
 		for(int i = 0; i <list.size()-1;i++)
 			{
 			check = list.get(i).toString().toLowerCase();
 			
 			if(check.contains(region.toLowerCase()))
 				{
-					String info = check + ", " + list.get(i).getArea()+ ", " + list.get(i).getPop();
+					String info = check.toUpperCase() + ", " + list.get(i).getArea()+ ", " + list.get(i).getPop();
 					JOptionPane.showMessageDialog(null, info);
 					return check;
 				}
 			}
 		
+		
 		region = JOptionPane.showInputDialog(null, "Invalid Region name, please enter a valid Region:");
-		return searchRegion(list, region, list2);
+		return searchRegion(list, region, list2, sortMethod);
 	}	
 	/*
 	 * this will determine whether to continue with the program
