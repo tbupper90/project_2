@@ -9,13 +9,13 @@ public class Driver
 {	
 	
 	private static ArrayList<Region> list;
-	private static ArrayList<Region> list2;
+//	private static ArrayList<Region> list2;
 	private static ArrayList<Continent> continents = new ArrayList<Continent>();
 	private static String continentsFile;
 	private static String countriesFile;
 	private static String citiesFile;
 	
-	private static HashMap<String, Continent> continentsHash = new HashMap<String, Continent>();
+//	private static HashMap<String, Continent> continentsHash = new HashMap<String, Continent>();
 	
 	
 	
@@ -25,7 +25,7 @@ public class Driver
 	public static void main(String[] args) throws IOException
 	{
 		boolean continueTest = true;
-		do{
+		
 		//files are in args for simplicity
 //		continentsFile = args[0];
 //		countriesFile = args[1];
@@ -41,7 +41,8 @@ public class Driver
 		readFile(continentsFile);
 		readFile(countriesFile);
 		readFile(citiesFile);
-			
+		
+		do{
 		String dataType = Prompt.getDataType();
 		
 		System.out.println(list);
@@ -58,7 +59,7 @@ public class Driver
 		
 //		System.out.println(list);
 		
-		Prompt.getOutputPreference(list, list2, sortMethod);
+		Prompt.getOutputPreference(list, sortMethod);
 		
 		continueTest = Prompt.getContinue();
 		
@@ -67,7 +68,7 @@ public class Driver
 		System.exit(0);
 	}
 	
-	
+/*	
 	public static void makeHashMaps(ArrayList<Continent> list)
 	{
 		for(Continent continent : list)
@@ -77,7 +78,7 @@ public class Driver
 		}	
 		
 	}
-	
+*/
 	
 	/*
 	 * this method reads in the file

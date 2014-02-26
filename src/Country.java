@@ -10,6 +10,8 @@ public class Country extends Region
 	 * object
 	 */
 	ArrayList<City> cities = new ArrayList<City>();
+
+/*
 	HashMap<String, City> citiesHash = new HashMap<String,City>();
 	
 	public void makeHashMap()
@@ -19,7 +21,7 @@ public class Country extends Region
 			citiesHash.put(city.name, city);
 		}
 	}
-
+*/
 	private String continent;
 	
 	/*

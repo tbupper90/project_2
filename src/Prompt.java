@@ -150,7 +150,7 @@ public class Prompt
 	 * this will determine whether to output to console, file, or
 	 * get further data
 	 */
-	public static void getOutputPreference(ArrayList<Region> list, ArrayList list2, String sortMethod) throws IOException
+	public static void getOutputPreference(ArrayList<Region> list, String sortMethod) throws IOException
 	{
 		
 		
@@ -205,7 +205,7 @@ public class Prompt
 		{
 			
 			String region = JOptionPane.showInputDialog(null, "What region would you like to know more about?");
-			searchRegion(list, region, list2, sortMethod);
+			searchRegion(list, region, sortMethod);
 		}
 
 		return;
@@ -213,7 +213,7 @@ public class Prompt
 	/*
 	 * This writes the information to a file determined by the User
 	 */
-	public static void fileWriter (ArrayList list, String filename) throws IOException
+	public static void fileWriter (ArrayList<Region> list, String filename) throws IOException
 	{
 		FileWriter outfile = new FileWriter(filename);
 		BufferedWriter bw = new BufferedWriter(outfile);
@@ -228,7 +228,7 @@ public class Prompt
 		
 	}
 
-	public static String searchRegion (ArrayList<Region> list, String region, ArrayList list2,String sortMethod)
+	public static String searchRegion (ArrayList<Region> list, String region,String sortMethod)
 	{
 		
 		String check = null;
@@ -251,7 +251,7 @@ public class Prompt
 		
 		
 		region = JOptionPane.showInputDialog(null, "Invalid Region name, please enter a valid Region:");
-		return searchRegion(list, region, list2, sortMethod);
+		return searchRegion(list, region, sortMethod);
 	}	
 	/*
 	 * this will determine whether to continue with the program
