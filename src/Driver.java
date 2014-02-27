@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 
+import javax.swing.JOptionPane;
+
 /*
  * This is the driver class and contains the main method, as well
  * as various methods that manipulate the files
@@ -47,6 +49,8 @@ public class Driver
 		
 		}while(continueTest);
 		
+		JOptionPane.showMessageDialog(null, "Thank you for using GeoData!",
+		        "GeoData", JOptionPane.INFORMATION_MESSAGE);
 		System.exit(0);
 	}
 	
