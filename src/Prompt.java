@@ -78,7 +78,8 @@ public class Prompt
             buttonGroup.add(buttons[i]);
             panel.add(buttons[i]);
         }
-
+        buttons[0].setSelected(true);
+        
         // Create a "JOptionPane" on which to put the panel
         JOptionPane optionPane = new JOptionPane();
         optionPane.setMessage("Show information for:");
@@ -147,7 +148,8 @@ public class Prompt
             buttonGroup.add(buttons[i]);
             panel.add(buttons[i]);
         }
-
+        buttons[0].setSelected(true);
+        
         // Create a "JOptionPane" on which to put the panel
         JOptionPane optionPane = new JOptionPane();
         optionPane.setMessage("Sort by:");
@@ -190,7 +192,8 @@ public class Prompt
 	            buttonGroup.add(buttons[i]);
 	            panel.add(buttons[i]);
 	        }
-
+	        buttons[0].setSelected(true);
+	        
 	        // Create a "JOptionPane" on which to put the panel
 	        JOptionPane optionPane = new JOptionPane();
 	        optionPane.setMessage("What would you like to do?:");
@@ -211,7 +214,7 @@ public class Prompt
 			}
 			lists = lists.substring(0, lists.length()-1);
 			JScrollPane scrollPane = new JScrollPane(new JTextArea(lists));
-			scrollPane.setPreferredSize(new Dimension(200,100));
+			scrollPane.setPreferredSize(new Dimension(250,100));
 			JOptionPane.showMessageDialog(null, scrollPane, "GeoData",
 			        JOptionPane.INFORMATION_MESSAGE);
 		}
@@ -265,7 +268,7 @@ public class Prompt
 			//should have a call to the Binary Search Method
 			//and return something similar to what i have in the other if statement
 			
-			int i = Collections.binarySearch(list, region, Region.Comparators.NAME);
+//			int i = Collections.binarySearch(list, region, Region.Comparators.NAME);
 			
 		}
 		for(int i = 0; i <list.size()-1;i++)
