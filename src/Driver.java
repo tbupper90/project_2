@@ -8,7 +8,7 @@ import java.util.*;
 public class Driver 
 {	
 	
-	private static ArrayList list;
+	private static ArrayList<Region> list;
 	private static ArrayList<Continent> continents = new ArrayList<Continent>();
 	private static String continentsFile;
 	private static String countriesFile;
@@ -26,15 +26,15 @@ public class Driver
 		boolean continueTest = true;
 		do{
 		//files are in args for simplicity
-//		continentsFile = args[0];
-//		countriesFile = args[1];
-//		citiesFile = args[2];
+		continentsFile = args[0];
+		countriesFile = args[1];
+		citiesFile = args[2];
 		
 		//get correct files
-		String[] files = Prompt.getFiles();
-		continentsFile = files[0];
-		countriesFile = files[1];
-		citiesFile = files[2];
+//		String[] files = Prompt.getFiles();
+//		continentsFile = files[0];
+//		countriesFile = files[1];
+//		citiesFile = files[2];
 		
 		//read in the files and assign the data contained within
 		readFile(continentsFile);
@@ -55,7 +55,7 @@ public class Driver
 		
 		list = sort.performSort(list, sortMethod);
 		
-//		System.out.println(list);
+		System.out.println(list);
 		
 		Prompt.getOutputPreference(list);
 		
