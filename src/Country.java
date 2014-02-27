@@ -1,7 +1,9 @@
 import java.util.*;
 
-/*
- * this class creates a Country object
+/**
+ * 
+ * This class contains the information for a Country object
+ *
  */
 public class Country extends Region
 {
@@ -13,8 +15,15 @@ public class Country extends Region
 
 	private String continent;
 	
-	/*
+	/**
 	 * creates a Country object
+	 */
+	/**
+	 * This is the contructor for the Country object
+	 * @param name Name of the country
+	 * @param pop Population of the country
+	 * @param area Area of the country
+	 * @param continent Continent the country belongs to
 	 */
 	public Country(String name, String pop, String area, String continent)
 	{
@@ -23,7 +32,7 @@ public class Country extends Region
 		this.area = area;
 		this.continent = continent;
 	}
-	/*
+	/**
 	 * these methods will get the different variables of
 	 * the City object
 	 */
@@ -32,8 +41,10 @@ public class Country extends Region
 	{
 		return continent;
 	}
-	/*
-	 * this method will add a city to the city array list
+
+	/**
+	 * This method will add a city to the city array list
+	 * @param city The city object to be added
 	 */
 	public void addCity(City city)
 	{
@@ -45,24 +56,7 @@ public class Country extends Region
 		return name;
 	}
 	
-	/*	
-	 public static Comparator<Region> NAME = new Comparator<Region>()
-	 {
-		@Override
-		public int compare(Region o1, Region o2)
-		{
-			if(o1.getName().compareTo(o2.getName()) < 0)
-			{
-				return -1;
-			}
-			else if(o1.getName().compareTo(o2.getName()) > 0)
-			{
-				return 1;
-			}
-			else return 0;
-		}
-	 };
-	*/
+
 }
 
 

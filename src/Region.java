@@ -24,6 +24,10 @@ abstract class Region
 		return area;
 	}
 	
+	/**
+	 * Comparators for the Region Class
+	 *
+	 */
 	public static class Comparators
 	{
 		public static Comparator<Region> AREA = new Comparator<Region>()

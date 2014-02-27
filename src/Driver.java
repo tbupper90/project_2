@@ -1,10 +1,13 @@
 import java.io.*;
 import java.util.*;
 
-/*
+/**
  * This is the driver class and contains the main method, as well
  * as various methods that manipulate the files
+ * 
+ * CS2334 Tyler Bell, Terry Thayer, Stanton Kent
  */
+
 public class Driver 
 {	
 	
@@ -14,8 +17,11 @@ public class Driver
 	private static String countriesFile;
 	private static String citiesFile;
 	
-	/*
-	 * This is the main
+
+	/**
+	 * This is the main method
+	 * @param args 
+	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException
 	{
@@ -50,8 +56,11 @@ public class Driver
 		System.exit(0);
 	}
 	
-	/*
-	 * this method reads in the file
+
+	/**
+	 * This method reads in, parses, and assigns variables
+	 * @param file File to be read in 
+	 * @throws IOException
 	 */
 	private static void readFile(String file) throws IOException
 	{
@@ -85,16 +94,22 @@ public class Driver
 	/*
 	 * this method will split up the file
 	 */
+	/**
+	 * This method parses a line by commas
+	 * @param line Line to be parsed
+	 * @param file Filename
+	 */
 	private static void parseLine(String line, String file)
 	{
 		String[] array = line.split(", ");
 		
 		assignVariables(array, file);
 	}
-	
-	/*
-	 * This method will assign the variables to their
-	 * respective values
+
+	/**
+	 * This method will assign variable to their repective values	
+	 * @param array Array that contains values
+	 * @param file Name of the file
 	 */
 	private static void assignVariables(String[] array, String file)
 	{		

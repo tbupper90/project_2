@@ -1,25 +1,27 @@
 import java.util.*;
-/*
- * This class will create a City Object
- * 
- * 
- */
 
+
+/**
+ * This class contains information for a city object
+ * 
+ *
+ */
 public class City extends Region 
 {
-	/*
-	 * This will add the specific variables to the
-	 * City Object
-	 */
+
 
 	private String country;
 	private String lat;
 	private String lon;
 	private String elev;
 	
-	/*
-	 * This method will create the city object, without latitude
-	 * longitude and elevation
+
+	/**
+	 * This method creates a city object without lat, lon, or elevation
+	 * @param name Name of the city
+	 * @param pop Population of the city
+	 * @param area Area of the city
+	 * @param country Country the city is in
 	 */
 	public City(String name, String pop, String area, String country)
 	{
@@ -31,8 +33,17 @@ public class City extends Region
 		this.lon = "";
 		this.elev = "";
 	}
-	/*
-	 * This method will create a city object with all variables filled
+
+	
+	/**
+	 * This method will create a city object 
+	 * @param name Name of the city
+	 * @param pop Population of the city
+	 * @param area Area of the city
+	 * @param country Country the city is in
+	 * @param lat Latitude
+	 * @param lon Longitude
+	 * @param elev Elevation
 	 */
 	public City(String name, String pop, String area, String country, String lat, String lon, String elev)
 	{
@@ -73,6 +84,13 @@ public class City extends Region
 		return name;
 	}
 	
+	
+	/**
+	 * This class contains the comparators for a city object that aren't 
+	 * inherited from a Region 
+	 * @author tbupper90
+	 *
+	 */
 	public static class Comparators
 	{
 		public static Comparator<City> LAT = new Comparator<City>()

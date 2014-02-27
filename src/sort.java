@@ -1,13 +1,13 @@
 import java.util.*;
 
-/*
- * This class contains all of the Sort methods
+
+/**
+ * This class contains all the sort methods
+ *
  */
 public class sort 
 {
-	/*
-	 * These are the different sort methods
-	 */
+
 	public static ArrayList<Region> sortByArea(ArrayList<Region> list)
 	{
 		Collections.sort(list, Region.Comparators.AREA);
@@ -191,10 +191,7 @@ public class sort
 					
 	}//end method
 	
-	public static void doWrite()
-	{
-		
-	}
+
 	
 	
 }//end class
