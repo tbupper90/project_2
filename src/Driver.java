@@ -1,8 +1,6 @@
 import java.io.*;
 import java.util.*;
 
-import javax.swing.JDialog;
-
 /*
  * This is the driver class and contains the main method, as well
  * as various methods that manipulate the files
@@ -22,22 +20,15 @@ public class Driver
 	public static void main(String[] args) throws IOException
 	{
 		boolean continueTest = true;
-<<<<<<< HEAD
-		do{
-		//files are in args for simplicity
-		continentsFile = args[0];
-		countriesFile = args[1];
-		citiesFile = args[2];
-=======
 		String dataType;
 		String sortMethod;
->>>>>>> cc7326bcdbbce1e5945033f68902beed114767bd
+
 		
 		//get correct files
-//		String[] files = Prompt.getFiles();
-//		continentsFile = files[0];
-//		countriesFile = files[1];
-//		citiesFile = files[2];
+		String[] files = Prompt.getFiles();
+		continentsFile = files[0];
+		countriesFile = files[1];
+		citiesFile = files[2];
 		
 		//read in the files and assign the data contained within
 		readFile(continentsFile);
@@ -50,15 +41,8 @@ public class Driver
 		
 		sortMethod = Prompt.getSortMethod(dataType);
 		list = sort.performSort(list, sortMethod);
-<<<<<<< HEAD
-		
-		System.out.println(list);
-		
-		Prompt.getOutputPreference(list);
-=======
-				
+
 		Prompt.getOutputPreference(list, sortMethod);
->>>>>>> cc7326bcdbbce1e5945033f68902beed114767bd
 		
 		continueTest = Prompt.getContinue();
 		
