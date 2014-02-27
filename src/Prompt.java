@@ -264,11 +264,7 @@ public class Prompt
 		
 		String check = null;
 		if(sortMethod.equals("Lexicographic"))
-		{
-			//should have a call to the Binary Search Method
-			//and return something similar to what i have in the other if statement
-			
-			
+		{	
 			int i = Collections.binarySearch(list, new Country(region, null, null, null), 
 					Region.Comparators.NAME);
 			
