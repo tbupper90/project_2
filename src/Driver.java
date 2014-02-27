@@ -151,7 +151,7 @@ public class Driver
 						if(country.getName().equals(city.getCountry()))
 						{
 							country.cities.add(city);
-							System.out.println(city.getName() + " added to " + country.getName());
+							//System.out.println(city.getName() + " added to " + country.getName());
 						}
 					}//end country for
 				}//end continent for
@@ -168,7 +168,7 @@ public class Driver
 						if(country.getName().equals(city.getCountry()))
 						{
 							country.cities.add(city);
-							System.out.println(city.getName() + " added to " + country.getName());
+							//System.out.println(city.getName() + " added to " + country.getName());
 						}
 					}//end country for
 				}//end continent for
