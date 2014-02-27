@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 
+import javax.swing.JDialog;
+
 /*
  * This is the driver class and contains the main method, as well
  * as various methods that manipulate the files
@@ -20,7 +22,9 @@ public class Driver
 	public static void main(String[] args) throws IOException
 	{
 		boolean continueTest = true;
-				
+		String dataType;
+		String sortMethod;
+		
 		//get correct files
 		String[] files = Prompt.getFiles();
 		continentsFile = files[0];
@@ -33,16 +37,10 @@ public class Driver
 		readFile(citiesFile);
 		
 		do{
-		String dataType = Prompt.getDataType();
-		
-		System.out.println(list);
-				
+		dataType = Prompt.getDataType();
 		list = sort.sortTypeOfData(continents, dataType);
 		
-		System.out.println(list.get(0));
-		
-		String sortMethod = Prompt.getSortMethod(dataType);
-			
+		sortMethod = Prompt.getSortMethod(dataType);
 		list = sort.performSort(list, sortMethod);
 				
 		Prompt.getOutputPreference(list, sortMethod);
