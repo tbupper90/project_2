@@ -1,13 +1,9 @@
 import java.io.*;
 import java.util.*;
-
-<<<<<<< HEAD
-/**
-=======
 import javax.swing.JOptionPane;
 
 /*
->>>>>>> FETCH_HEAD
+
  * This is the driver class and contains the main method, as well
  * as various methods that manipulate the files
  * 
