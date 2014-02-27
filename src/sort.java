@@ -14,7 +14,7 @@ public class sort
 		return list;
 	}
 	
-	public static ArrayList<Region>  sortByPopulation(ArrayList<Region> list)
+	public static ArrayList<Region> sortByPopulation(ArrayList<Region> list)
 	{
 		Collections.sort(list, Region.Comparators.POP);
 		return list;

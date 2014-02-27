@@ -167,6 +167,7 @@ public class Prompt
         
         return result;
 	}
+	
 	/*
 	 * this will determine whether to output to console, file, or
 	 * get further data
@@ -178,10 +179,7 @@ public class Prompt
 		
 		String [] options = {"Print to Screen","Print to File","Search for Particular Region"};
 		
-		
-		
-		
-		  JRadioButton[] buttons = new JRadioButton[options.length];
+		    JRadioButton[] buttons = new JRadioButton[options.length];
 	        ButtonGroup buttonGroup = new ButtonGroup();
 	        JPanel panel = new JPanel();
 	        panel.setLayout(new GridLayout(options.length,1));
@@ -237,6 +235,7 @@ public class Prompt
 
 		return;
 	}
+	
 	/*
 	 * This writes the information to a file determined by the User
 	 */
@@ -256,7 +255,8 @@ public class Prompt
 		
 	}
 
-	public static String searchRegion (ArrayList<Region> list, String region,String sortMethod)
+	public static String searchRegion (ArrayList<Region> list, String region,
+	        String sortMethod)
 	{
 		
 		String check = null;
@@ -292,7 +292,7 @@ public class Prompt
 	public static boolean getContinue()
 	{
         int result = JOptionPane.showConfirmDialog(null,
-                "Would you like to continue?", "GeoData", 
+                "Would you like to get more information?", "GeoData", 
                 JOptionPane.YES_NO_OPTION); 
         
         return (result == JOptionPane.YES_OPTION);
