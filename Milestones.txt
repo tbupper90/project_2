@@ -1,0 +1,13 @@
+1. Use keyboard input to get information from the user.
+
+2. Use text file I/O to read and write text files.
+
+3. Create classes to store data on various types of geographic regions, including cities, countries, and continents. Note that you should create any additional classes (abstract and/or concrete) and/or interfaces you deem necessary to arrive at a good design.
+
+4. Implement both the Comparable and Comparator interfaces to compare one geographic design to another.
+
+5. Use a List to store, retrieve, and display data related to geographic regions as described below.
+
+6. Use the sort() and binarySearch() methods from the Collections class to sort and search for data related to the description below.
+
+Extra:

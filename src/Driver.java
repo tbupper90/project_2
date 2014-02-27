@@ -23,7 +23,6 @@ public class Driver
 		String dataType;
 		String sortMethod;
 
-		
 		//get correct files
 		String[] files = Prompt.getFiles();
 		continentsFile = files[0];
