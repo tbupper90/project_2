@@ -264,6 +264,9 @@ public class Prompt
 		{
 			//should have a call to the Binary Search Method
 			//and return something similar to what i have in the other if statement
+			
+			int i = Collections.binarySearch(list, region, Region.Comparators.NAME);
+			
 		}
 		for(int i = 0; i <list.size()-1;i++)
 			{
