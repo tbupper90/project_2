@@ -258,7 +258,7 @@ public class Prompt
 		
 	}
 
-	public static String searchRegion (ArrayList<Region> list, String region,
+	public static String searchRegion(ArrayList<Region> list, String region,
 	        String sortMethod)
 	{
 		
@@ -268,9 +268,18 @@ public class Prompt
 			//should have a call to the Binary Search Method
 			//and return something similar to what i have in the other if statement
 			
-//			int i = Collections.binarySearch(list, region, Region.Comparators.NAME);
 			
+			int i = Collections.binarySearch(list, new Country(region, null, null, null), 
+					Region.Comparators.NAME);
+			
+			String info = list.get(i).getName() + ", " + 
+					list.get(i).getArea() + ", " +
+			        list.get(i).getPop();
+			JOptionPane.showMessageDialog(null, info);
+			return list.get(i).toString().toLowerCase();
 		}
+		
+		
 		for(int i = 0; i <list.size()-1;i++)
 			{
 			check = list.get(i).toString().toLowerCase();
@@ -304,4 +313,6 @@ public class Prompt
         return (result == JOptionPane.YES_OPTION);
 
 	}
+	
+	
 }

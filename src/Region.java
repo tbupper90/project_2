@@ -7,6 +7,7 @@ abstract class Region
 	protected String pop;
 	protected String area;
 	
+
 	
 	public String getName()
 	{
