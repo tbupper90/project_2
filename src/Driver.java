@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 
+import javax.swing.JDialog;
+
 /*
  * This is the driver class and contains the main method, as well
  * as various methods that manipulate the files
@@ -14,21 +16,22 @@ public class Driver
 	private static String countriesFile;
 	private static String citiesFile;
 	
-	private static HashMap<String, Continent> continentsHash = new HashMap<String, Continent>();
-	
-	
-	
 	/*
 	 * This is the main
 	 */
 	public static void main(String[] args) throws IOException
 	{
 		boolean continueTest = true;
+<<<<<<< HEAD
 		do{
 		//files are in args for simplicity
 		continentsFile = args[0];
 		countriesFile = args[1];
 		citiesFile = args[2];
+=======
+		String dataType;
+		String sortMethod;
+>>>>>>> cc7326bcdbbce1e5945033f68902beed114767bd
 		
 		//get correct files
 //		String[] files = Prompt.getFiles();
@@ -40,24 +43,22 @@ public class Driver
 		readFile(continentsFile);
 		readFile(countriesFile);
 		readFile(citiesFile);
-			
-		String dataType = Prompt.getDataType();
 		
-//		System.out.println(dataType);
-				
+		do{
+		dataType = Prompt.getDataType();
 		list = sort.sortTypeOfData(continents, dataType);
 		
-//		System.out.println(list);
-		
-		String sortMethod = Prompt.getSortMethod(dataType);
-		
-//		System.out.println(sortMethod);
-		
+		sortMethod = Prompt.getSortMethod(dataType);
 		list = sort.performSort(list, sortMethod);
+<<<<<<< HEAD
 		
 		System.out.println(list);
 		
 		Prompt.getOutputPreference(list);
+=======
+				
+		Prompt.getOutputPreference(list, sortMethod);
+>>>>>>> cc7326bcdbbce1e5945033f68902beed114767bd
 		
 		continueTest = Prompt.getContinue();
 		
@@ -65,18 +66,6 @@ public class Driver
 		
 		System.exit(0);
 	}
-	
-	
-	public static void makeHashMaps(ArrayList<Continent> list)
-	{
-		for(Continent continent : list)
-		{
-			continentsHash.put(continent.getName(), continent);
-			continent.makeHashMap();
-		}	
-		
-	}
-	
 	
 	/*
 	 * this method reads in the file

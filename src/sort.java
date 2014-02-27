@@ -10,10 +10,8 @@ public class sort
 	 */
 	public static ArrayList<Region> sortByArea(ArrayList<Region> list)
 	{
-	
 		Collections.sort(list, Region.Comparators.AREA);
 		return list;
-		
 	}
 	
 	public static ArrayList<Region>  sortByPopulation(ArrayList<Region> list)
@@ -25,8 +23,7 @@ public class sort
 	public static ArrayList<City> sortByLat(ArrayList<City> cities)
 	{
 		Collections.sort(cities, City.Comparators.LAT);
-		return cities;
-		
+		return cities;	
 	}
 	
 	public static ArrayList<City> sortByLon(ArrayList<City> cities)
@@ -140,7 +137,8 @@ public class sort
 			return newList;
 		
 		case "Latitude": 
-			for(Region city : list)
+			
+		    for(Region city : list)
 			{
 				cityList.add((City) city);
 			}
@@ -155,7 +153,7 @@ public class sort
 			
 		case "Longitude":
 			
-			for(Region city : list)
+		    for(Region city : list)
 			{
 				cityList.add((City) city);
 			}
@@ -170,7 +168,7 @@ public class sort
 		
 		case "Elevation":
 			
-			for(Region city : list)
+		    for(Region city : list)
 			{
 				cityList.add((City) city);
 			}
@@ -183,6 +181,10 @@ public class sort
 			}
 			return newList;
 		
+		case "Random":
+		    newList = sortRandomly(list);
+		    return newList;
+		    
 		}
 		
 		return null;

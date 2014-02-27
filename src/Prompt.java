@@ -1,8 +1,8 @@
 import java.util.*;
-import java.awt.GridLayout;
+import java.awt.*;
+import javax.swing.*;
 import java.io.*;
 
-import javax.swing.*;
 /*
  * This class will get the files as well as user input
  */
@@ -13,30 +13,49 @@ public class Prompt
 	 */
 	public static String[] getFiles()
 	{
-	    JTextField contField = new JTextField(10);
-        JTextField countryField = new JTextField(10);
-        JTextField cityField = new JTextField(10);
+	    String[] fieldTitles = {"Continents", "Countries", "Cities"};
+	    JTextField[] textFields = new JTextField[fieldTitles.length];
+        String[] fileNames = new String[fieldTitles.length];
 
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(3,2));
-        panel.add(new JLabel("Continents:"));
-        panel.add(contField);
-        panel.add(new JLabel("Countries:"));
-        panel.add(countryField);
-        panel.add(new JLabel("Cities:"));
-        panel.add(cityField);
+        boolean fileError;
+        int result;
 	    
-        int result = JOptionPane.showConfirmDialog(null, panel, 
-                "Please enter names of files:", JOptionPane.OK_CANCEL_OPTION);
-        String[] files = {contField.getText(), countryField.getText(), cityField.getText()};
-        
-        if (result == JOptionPane.CANCEL_OPTION)
-        {
-            System.exit(0);
-        }
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(3,1));
 
-        return files;		
+        for (int i = 0; i < fieldTitles.length; i++)
+        {
+            textFields[i] = new JTextField(10);
+            panel.add(new JLabel(fieldTitles[i] + ":"));
+            panel.add(textFields[i]);            
+        }
+        
+        do {
+            fileError = false;
+            result = JOptionPane.showConfirmDialog(null, panel, 
+                    "GeoData", JOptionPane.DEFAULT_OPTION);
+            if (result == JOptionPane.CLOSED_OPTION)
+            {
+                System.exit(0);
+            }
+
+            for (int i = 0; i < fieldTitles.length; i++)
+            {
+                fileNames[i] = textFields[i].getText();
+                // Display an error message when a file is not found
+                if (new File(fileNames[i]).exists() == false) {
+                    JOptionPane.showMessageDialog(null, fieldTitles[i] +
+                            " file " + "\"" + fileNames[i] + "\"" +
+                            " not found", "GeoData",
+                            JOptionPane.ERROR_MESSAGE);
+                    fileError = true;
+                }
+            }            
+        } while (fileError);
+        
+        return fileNames;		
 	}
+	
 	/*
 	 * This method will get the data type the user inputs
 	 * (country,city,continent)
@@ -67,7 +86,7 @@ public class Prompt
         optionPane.add(panel, 1);
         // Create a JDialog on which to display the JOptionPane, with panel 
         JDialog continueDialog = optionPane.createDialog(null,
-                "What type of data?");
+                "GeoData");
         continueDialog.setVisible(true);
 
         // Set the return String equal to the choice made
@@ -81,18 +100,21 @@ public class Prompt
         if (buttons[3].isSelected())
         {
             result = "_countrieswithin_" + JOptionPane.showInputDialog(null,
-                    "Which continent?");
+                    "Which continent?", "GeoData",
+                    JOptionPane.QUESTION_MESSAGE);
             // Add while loop later to confirm valid entry
         }
         else if (buttons[4].isSelected())
         {
             result = "_citieswithin_" + JOptionPane.showInputDialog(null,
-                    "Which country?");          
+                    "Which country?", "GeoData",
+                    JOptionPane.QUESTION_MESSAGE);          
             // Add while loop later to confirm valid entry
         }
         	
 		return result;
 	}
+	
 	/*
 	 * this will get the way the data will be sorted
 	 * (elevation, population, name etc)
@@ -133,7 +155,7 @@ public class Prompt
         optionPane.add(panel, 1);
         // Create a JDialog on which to display the JOptionPane, with panel 
         JDialog continueDialog = optionPane.createDialog(null,
-                "Which information to sort by?");
+                "GeoData");
         continueDialog.setVisible(true);
 
         // Set the return String equal to the choice made
@@ -149,37 +171,77 @@ public class Prompt
 	 * this will determine whether to output to console, file, or
 	 * get further data
 	 */
-	public static void getOutputPreference(ArrayList list) throws IOException
+	public static void getOutputPreference(ArrayList<Region> list,
+	        String sortMethod) throws IOException
 	{
-		Scanner input = new Scanner(System.in);
-		String preference = null;
-		System.out.println("What would you like to ouput to");
-		preference = input.next();
-		if(preference.equals("PS"))
+		
+		
+		String [] options = {"Print to Screen","Print to File","Search for Particular Region"};
+		
+		
+		
+		
+		  JRadioButton[] buttons = new JRadioButton[options.length];
+	        ButtonGroup buttonGroup = new ButtonGroup();
+	        JPanel panel = new JPanel();
+	        panel.setLayout(new GridLayout(options.length,1));
+	        // Construct each button, add it to the group, and add it to the panel
+	        for (int i = 0; i < options.length; i++)
+	        {
+	            buttons[i] = new JRadioButton(options[i]);
+	            buttonGroup.add(buttons[i]);
+	            panel.add(buttons[i]);
+	        }
+
+	        // Create a "JOptionPane" on which to put the panel
+	        JOptionPane optionPane = new JOptionPane();
+	        optionPane.setMessage("What would you like to do?:");
+	        optionPane.setMessageType(JOptionPane.QUESTION_MESSAGE);
+	        optionPane.add(panel, 1);
+	        // Create a JDialog on which to display the JOptionPane, with panel 
+	        JDialog continueDialog = optionPane.createDialog(null,
+	                "GeoData");
+	        continueDialog.setVisible(true);
+		
+		
+		if(buttons[0].isSelected())
 		{
-			System.out.println(list);
-			return;
+			String lists = "";
+			for(int i = 0; i <list.size(); i++)
+			{
+				lists = lists.concat(list.get(i).toString() + "\n");
+			}
+			lists = lists.substring(0, lists.length()-1);
+			JScrollPane scrollPane = new JScrollPane(new JTextArea(lists));
+			scrollPane.setPreferredSize(new Dimension(200,100));
+			JOptionPane.showMessageDialog(null, scrollPane, "GeoData",
+			        JOptionPane.INFORMATION_MESSAGE);
 		}
-		if(preference.equals("PF"))
+		else if(buttons[1].isSelected())
 		{
-			System.out.println("What is the file name?:");
-			String filename = input.next();
+			
+			String filename = JOptionPane.showInputDialog(null,
+			        "What is the filename?", "GeoData",
+			        JOptionPane.QUESTION_MESSAGE);
 			fileWriter(list,filename);
-			return;
+			
 		}
-		if(preference.equals("SP"))
+		else if(buttons[2].isSelected())
 		{
-			System.out.println("What country do you wish to know more about?");
-			String region = input.next();
-			return;
+			
+			String region = JOptionPane.showInputDialog(null,
+			        "What region would you like to know more about?",
+			        "GeoData", JOptionPane.QUESTION_MESSAGE);
+			searchRegion(list, region, sortMethod);
 		}
 
-		
+		return;
 	}
 	/*
 	 * This writes the information to a file determined by the User
 	 */
-	public static void fileWriter (ArrayList list, String filename) throws IOException
+	public static void fileWriter (ArrayList<Region> list, String filename)
+	        throws IOException
 	{
 		FileWriter outfile = new FileWriter(filename);
 		BufferedWriter bw = new BufferedWriter(outfile);
@@ -194,30 +256,43 @@ public class Prompt
 		
 	}
 
-	public static String searchRegion (ArrayList list, String region)
+	public static String searchRegion (ArrayList<Region> list, String region,String sortMethod)
 	{
-		Scanner input = new Scanner(System.in);
+		
 		String check = null;
+		if(sortMethod.equals("Lexicographic"))
+		{
+			//should have a call to the Binary Search Method
+			//and return something similar to what i have in the other if statement
+		}
 		for(int i = 0; i <list.size()-1;i++)
 			{
 			check = list.get(i).toString().toLowerCase();
+			
 			if(check.contains(region.toLowerCase()))
 				{
+					String info = check.toUpperCase() + ", " +
+					        list.get(i).getArea() + ", " +
+					        list.get(i).getPop();
+					JOptionPane.showMessageDialog(null, info);
 					return check;
 				}
 			}
-		System.out.println("Invalid Region, Please re-enter the region:");
-		region = input.nextLine();
-		return searchRegion(list, region);
-	}	
+		
+		
+		region = JOptionPane.showInputDialog(null,
+		        "Invalid Region name, please enter a valid Region:", "GeoData",
+		        JOptionPane.QUESTION_MESSAGE);
+		return searchRegion(list, region, sortMethod);
+	}
+	
 	/*
 	 * this will determine whether to continue with the program
 	 */
 	public static boolean getContinue()
 	{
-        int result = JOptionPane.showConfirmDialog(null, 
-                "Would you like to continue?", 
-                "Continue?", 
+        int result = JOptionPane.showConfirmDialog(null,
+                "Would you like to continue?", "GeoData", 
                 JOptionPane.YES_NO_OPTION); 
         
         return (result == JOptionPane.YES_OPTION);
